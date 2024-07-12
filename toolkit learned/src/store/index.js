@@ -1,3 +1,19 @@
+/*
+toolkit is used to make code clean and dont need to explain all thing like redux it make easy to write
+redux code 
+
+
+1. configureStore
+
+2. createSlice
+
+3. export action
+
+
+
+
+*/
+
 import { configureStore, createAction, createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
@@ -35,4 +51,3 @@ const counterStore = configureStore({
 export const privacyActions = privacySlice.actions;
 export const counterActions = counterSlice.actions;
 export default counterStore;
-
