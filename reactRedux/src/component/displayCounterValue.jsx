@@ -5,7 +5,7 @@ function Display() {
 
   return (
     <>
-      <p className="lead mb-4">This the current counter value: {counter}</p>
+      <p className="lead mb-4">This the current counter value: {counter} </p>
     </>
   );
 }

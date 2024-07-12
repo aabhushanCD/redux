@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { counterActions, privacyActions } from "../store";
 
 function Controls() {
   const value = useRef();
@@ -7,37 +8,30 @@ function Controls() {
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
-    dispatch({
-      type: "INCREMENT",
-    });
+    // dispatch({
+    //   type: "INCREMENT",
+    // });
+    dispatch(counterActions.increment());
   };
 
   const hanleDecrement = () => {
-    dispatch({ type: "DECREMENT" });
+    dispatch(counterActions.decrement());
+    // dispatch({ type: "DECREMENT" });
   };
 
   const handleAdd = () => {
     const num = value.current.value;
-    dispatch({ type: "ADD", payload: { num } });
-
+    dispatch(counterActions.add({ num }));
     value.current.value = "";
   };
   const handleSub = () => {
     const num = value.current.value;
-    dispatch({
-      type: "SUBTRACT",
-      payload: {
-        num,
-      },
-    });
-
+    dispatch(counterActions.subtract({ num }));
     value.current.value = "";
   };
 
   const handlePrivacy = () => {
-    dispatch({
-      type: "PRIVACY",
-    });
+    dispatch(privacyActions.toggle());
   };
 
   return (
@@ -57,7 +51,11 @@ function Controls() {
         >
           -1
         </button>
-        <button type="button" className="btn btn-secondary" onClick={handlePrivacy}>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={handlePrivacy}
+        >
           Privacy Mode
         </button>
       </div>
